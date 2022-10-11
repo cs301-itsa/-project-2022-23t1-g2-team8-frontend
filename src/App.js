@@ -4,7 +4,13 @@ import { useEffect, useState } from "react";
 function App() {
 const [data, setData] = useState(null);
 useEffect(() => {
-fetch(`https://wy081tc2nf.execute-api.us-east-1.amazonaws.com/IntegrationTesting`)
+fetch(`https://wy081tc2nf.execute-api.us-east-1.amazonaws.com/IntegrationTesting`,
+{
+    mode: 'cors',
+    headers: {
+        'Access-Control-Allow-Origin': '*'
+    }
+})
 .then((response) => {
 return response.json()
 })
